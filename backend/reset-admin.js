@@ -9,8 +9,8 @@ const resetAdmin = async () => {
     await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/raja_realestate');
     console.log('Connected to MongoDB ✅');
 
-    const email = 'lokeswararaoyandra@gmail.com';
-    const password = 'lokeswararao1976';
+    const email = 'lokesh@1169';
+    const password = 'lokesh1976';
 
     let user = await User.findOne({ email });
 
