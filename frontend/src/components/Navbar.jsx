@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar glass">
       <Link to="/" className="navbar-logo">
         Raja Rajeswari Developers
       </Link>

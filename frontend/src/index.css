@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
-  --primary-color: #1e293b; /* Sleek Deep Slate */
+  --primary-color: #1e293b; 
   --primary-hover: #0f172a;
   --bg-color: #f8fafc;
-  --card-bg: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
   --text-main: #0f172a;
   --text-muted: #64748b;
   --border-color: #e2e8f0;
@@ -25,6 +26,38 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Moving Background Blobs */
+.bg-blob {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(30, 41, 59, 0.08) 0%, rgba(30, 41, 59, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(60px);
+  animation: float 20s infinite alternate;
+}
+
+.blob-1 { top: -10%; left: -10%; animation-delay: 0s; }
+.blob-2 { bottom: -10%; right: -10%; animation-delay: -5s; background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, rgba(16, 185, 129, 0) 70%); }
+.blob-3 { top: 40%; left: 60%; animation-delay: -10s; background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(59, 130, 246, 0) 70%); }
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(100px, 50px) scale(1.1); }
+  100% { transform: translate(-50px, 100px) scale(1); }
+}
+
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-logo {
@@ -49,7 +82,18 @@ a {
 }
 
 .fade-in {
-  animation: fadeIn 0.4s ease-out forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Common UI */
@@ -110,9 +154,13 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border-color);
+  padding: 15px 30px;
   margin-bottom: 40px;
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  border-radius: 50px;
+  margin-top: 20px;
 }
 .navbar-logo {
   font-size: 1.5rem;

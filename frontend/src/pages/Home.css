@@ -22,11 +22,12 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 15px;
-  background: var(--card-bg);
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 40px;
-  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 24px;
+  margin-bottom: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .property-grid {

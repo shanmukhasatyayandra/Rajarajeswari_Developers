@@ -23,7 +23,7 @@ const PropertyCard = ({ property }) => {
   };
 
   return (
-    <div className="property-card fade-in">
+    <div className="property-card glass reveal">
       <div className="card-image-wrapper">
         <img 
           src={images[currentImageIndex]} 

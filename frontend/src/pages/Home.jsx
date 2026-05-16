@@ -44,12 +44,12 @@ const Home = () => {
 
   return (
     <div className="home-page fade-in">
-      <div className="hero-section">
+      <div className="hero-section reveal">
         <h1>Find Your Perfect Property</h1>
         <p>Premium real estate with Raja Rajeswari Developers</p>
       </div>
 
-      <form className="filter-bar" onSubmit={handleFilter}>
+      <form className="filter-bar glass reveal" onSubmit={handleFilter}>
         <input 
           type="text" 
           placeholder="Search by Title" 
